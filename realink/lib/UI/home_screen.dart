@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:realink/utils/filter.dart';
+import 'package:realink/utils/filter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 40.h),
                   buildHeader(),
                   SizedBox(height: 20.h),
-                  buildSearchAndFilter(),
+                  buildSearchAndFilter(context),
                   SizedBox(height: 20.h),
                   buildCategoryIcons(context),
                 ],
@@ -421,7 +423,7 @@ Widget buildHeader() {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        "Hello\nAbdul Muqeet 👋",
+        "Hello\nSamuel Tan 👋",
         style: TextStyle(
           fontSize: 24.sp,
           fontWeight: FontWeight.bold,
@@ -435,7 +437,7 @@ Widget buildHeader() {
   );
 }
 
-Widget buildSearchAndFilter() {
+Widget buildSearchAndFilter(BuildContext context) {
   return Padding(
     padding: EdgeInsets.all(6.0.w),
     child: Row(
@@ -454,15 +456,23 @@ Widget buildSearchAndFilter() {
           ),
         ),
         SizedBox(width: 10.w),
-        Container(
-          height: 60.h,
-          width: 60.w,
-          decoration: BoxDecoration(
-            color: Colors.black87,
-            borderRadius: BorderRadius.circular(15.r),
-          ),
-          child: Center(
-            child: Icon(Icons.filter_alt, color: Colors.white, size: 30.sp),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FilterScreen()),
+            );
+          },
+          child: Container(
+            height: 60.h,
+            width: 60.w,
+            decoration: BoxDecoration(
+              color: Colors.black87,
+              borderRadius: BorderRadius.circular(15.r),
+            ),
+            child: Center(
+              child: Icon(Icons.filter_alt, color: Colors.white, size: 30.sp),
+            ),
           ),
         ),
       ],

@@ -178,7 +178,7 @@ class Login extends StatelessWidget {
                               context.push('/Home');
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xffFEDCC3),
+                              backgroundColor: Color.fromRGBO(255, 126, 95, 1),
                               padding: EdgeInsets.symmetric(vertical: 14.h),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(14.0.r),
@@ -186,7 +186,8 @@ class Login extends StatelessWidget {
                             ),
                             child: Text(
                               'Log In',
-                              style: TextStyle(fontSize: 15.sp),
+                              style: TextStyle(
+                                  fontSize: 15.sp, color: Colors.white),
                             ),
                           ),
                         ),
